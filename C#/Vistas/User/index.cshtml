@@ -1,0 +1,26 @@
+
+@model IEnumerable<OptativoTercerParcial.Models.Usuario>
+
+<h2>Usuarios</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre de usuario</th>
+            <th>Contraseña</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.IDUSUARIO</td>
+                <td>@usuario.NOMBREUSUARIO</td>
+                <td>@usuario.CONTRASEÑA</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Home">Volver a Home</a>
