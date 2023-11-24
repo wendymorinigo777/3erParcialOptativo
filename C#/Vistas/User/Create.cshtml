@@ -1,44 +1,34 @@
+@model OptativoTercerParcial.Models.Usuario
+
 @{
-    ViewData["Title"] = "Iniciar sesión";
+    ViewData["Title"] = "Crear Usuario";
 }
 
 <h2>@ViewData["Title"]</h2>
 
-<form id="loginForm" method="post" action="/api/Auth/GetToken">
+<form asp-action="Create">
     <div class="form-group">
-        <label for="username">Nombre de usuario</label>
-        <input type="text" id="username" name="username" class="form-control" />
+        <label asp-for="NOMBRE_USUARIO" class="control-label"></label>
+        <input asp-for="NOMBRE_USUARIO" class="form-control" />
+        <span asp-validation-for="NOMBRE_USUARIO" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" class="form-control" />
+        <label asp-for="CONTRASEÑA" class="control-label"></label>
+        <input asp-for="CONTRASEÑA" class="form-control" />
+        <span asp-validation-for="CONTRASEÑA" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+    <div class="form-group">
+        <input type="submit" value="Crear" class="btn btn-primary" />
+    </div>
 </form>
 
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
 @section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#loginForm').on('submit', function (e) {
-                e.preventDefault();
-
-                var username = $('#username').val();
-                var password = $('#password').val();
-
-                $.ajax({
-                    url: '/api/Auth/GetToken',
-                    type: 'post',
-                    contentType: 'application/json',
-                    data: JSON.stringify({ Username: username, Password: password }),
-                    success: function () {
-                        window.location.href = '/Home/Index';
-                    },
-                    error: function () {
-                        alert('Nombre de usuario o/y contraseña incorrectos');
-                    }
-                });
-            });
-        });
-    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
