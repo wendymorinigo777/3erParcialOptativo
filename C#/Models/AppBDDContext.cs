@@ -2,40 +2,40 @@ using Microsoft.EntityFrameworkCore;
 
 namespace OptativoTercerParcial.Models
 {
-    public class AppBDDContext : DbContext
+    public class AppBDDContext : BDDContext
     {
-        public AppBDDContext(DbContextOptions<AppBDDContext> options) : base(options)
+        public AppBDDContext(BDDContextOptions<AppBDDContext> options) : base(options)
         {
         }
 
-        public DbSet<Ciudad> Ciudades { get; set; }
-        public DbSet<Persona> Personas { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Cuentas> Cuentas { get; set; }
-        public DbSet<Movimientos> Movimientos { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+        public BDDSet<Ciudad> Ciudades { get; set; }
+        public BDDSet<Persona> Personas { get; set; }
+        public BDDt<Cliente> Clientes { get; set; }
+        public BDDSet<Cuentas> Cuentas { get; set; }
+        public BDDSet<Movimientos> Movimientos { get; set; }
+        public BDDSet<Usuario> Usuarios { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Ciudad>()
-                .HasKey(c => c.idCiudad);
+                .HasKey(c => c.id_Ciudad);
 
             modelBuilder.Entity<Persona>()
-                .HasKey(p => p.idPersona);
+                .HasKey(p => p.id_Persona);
 
             modelBuilder.Entity<Cliente>()
-                .HasKey(c => c.idCliente);
+                .HasKey(c => c.id_Cliente);
 
             modelBuilder.Entity<Cuentas>()
-                .HasKey(c => c.idCuenta);
+                .HasKey(c => c.id_Cuenta);
 
             modelBuilder.Entity<Movimientos>()
-                .HasKey(m => m.idMovimiento);
+                .HasKey(m => m.id_Movimiento);
             modelBuilder.Entity<Usuario>()
                 .HasOne(u => u.Persona)
                 .WithMany()
-                .HasForeignKey(u => u.IDPERSONA);
+                .HasForeignKey(u => u.ID_PERSONA);
         }
     }
 
