@@ -1,0 +1,26 @@
+@model OptativoTercerParcial.Models.Usuario
+
+@{
+    ViewData["Title"] = "Eliminar Usuario";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>¿Estás seguro de que quieres eliminar este usuario?</h3>
+
+<div>
+    <!-- Detalles del usuario -->
+</div>
+
+<form asp-action="DeleteConfirmed">
+    @Html.HiddenFor(model => model.IDUSUARIO)
+
+    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    <a asp-action="Index">Cancelar y volver a la lista</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
