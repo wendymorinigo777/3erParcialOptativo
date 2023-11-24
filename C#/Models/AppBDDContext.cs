@@ -10,7 +10,7 @@ namespace OptativoTercerParcial.Models
 
         public BDDSet<Ciudad> Ciudades { get; set; }
         public BDDSet<Persona> Personas { get; set; }
-        public BDDt<Cliente> Clientes { get; set; }
+        public BDDSet<Cliente> Clientes { get; set; }
         public BDDSet<Cuentas> Cuentas { get; set; }
         public BDDSet<Movimientos> Movimientos { get; set; }
         public BDDSet<Usuario> Usuarios { get; set; }
