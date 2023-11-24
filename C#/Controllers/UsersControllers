@@ -56,7 +56,7 @@ namespace OptativoTercerParcial.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (bddUpdateConcurrencyException)
             {
                 if (!UsuarioExists(id))
                 {
@@ -78,7 +78,7 @@ namespace OptativoTercerParcial.Controllers
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUsuario", new { id = usuario.IDUSUARIO }, usuario);
+            return CreatedAtAction("GetUsuario", new { id = usuario.ID_USUARIO }, usuario);
         }
 
         // DELETE: api/Usuario/5
@@ -99,7 +99,7 @@ namespace OptativoTercerParcial.Controllers
 
         private bool UsuarioExists(int id)
         {
-            return _context.Usuarios.Any(e => e.IDUSUARIO == id);
+            return _context.Usuarios.Any(e => e.ID_USUARIO == id);
         }
     }
 }
