@@ -7,12 +7,12 @@
 <h2>@ViewData["Title"]</h2>
 
 <form asp-action="Edit">
-    @Html.HiddenFor(model => model.IDUSUARIO)
+    @Html.HiddenFor(model => model.ID_USUARIO)
 
     <div class="form-group">
-        <label asp-for="NOMBR_EUSUARIO" class="control-label"></label>
+        <label asp-for="NOMBRe_EUSUARIO" class="control-label"></label>
         <input asp-for="NOMBRE_USUARIO" class="form-control" />
-        <span asp-validation-for="NOMBREUSUARIO" class="text-danger"></span>
+        <span asp-validation-for="NOMBRE_USUARIO" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="CONTRASEÑA" class="control-label"></label>
